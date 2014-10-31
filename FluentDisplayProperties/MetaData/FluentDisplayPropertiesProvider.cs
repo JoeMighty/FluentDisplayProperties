@@ -13,10 +13,10 @@ namespace FluentDisplayProperties.MetaData
             var res = DisplayPropertyFactory.DisplayProperties;
 
             IDisplayProperty property;
-            if (DisplayPropertyFactory.DisplayProperties.TryGetValue(containerType, out property))
+            /*if (DisplayPropertyFactory.DisplayProperties.TryGetValue(containerType, out property))
             {
                 metadata.DisplayName = property.DisplayValue;
-            }
+            }*/
 
             /*if (metadata.DisplayName == null)
             {
