@@ -6,11 +6,16 @@ namespace FluentDisplayProperties
 {
     public abstract class DisplayPropertyConfiguration<TModel> where TModel : class
     {
+
+
         public PropertyInstance<TProp> Property<TProp>(Expression<Func<TModel, TProp>> expression) where TProp : class
         {
-            DisplayPropertyFactory.DisplayProperties.Add();
+            var displayProperty = new DisplayProperty();
+            var instance = new PropertyInstance<TProp>(displayProperty);
 
-            return new PropertyInstance<TProp>();
+            DisplayPropertyFactory.DisplayProperties.Add(typeof (TModel), displayProperty);
+
+            return new PropertyInstance<TProp>(displayProperty);
         }
     }
 }

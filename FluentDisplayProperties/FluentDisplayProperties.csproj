@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayProperty.cs" />
     <Compile Include="DisplayPropertyConfiguration.cs" />
     <Compile Include="DisplayPropertyFactory.cs" />
     <Compile Include="MetaData\FluentDisplayProperties.cs" />
