@@ -1,2 +1,2 @@
-FluentDisplayProperties
+Fluent Display Properties
 =======================
