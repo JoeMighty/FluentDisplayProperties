@@ -5,9 +5,9 @@ namespace FluentDisplayProperties
 {
     public class DisplayPropertyFactory
     {
-        public static Dictionary<Type, IDisplayProperty> DisplayProperties = new Dictionary<Type, IDisplayProperty>();
+        public static Dictionary<string, IDisplayProperty> DisplayProperties = new Dictionary<string, IDisplayProperty>();
 
-        public IDisplayProperty GetDisplayProperty(Type type)
+        public IDisplayProperty GetDisplayProperty(string type)
         {
             IDisplayProperty property;
             if (DisplayProperties.TryGetValue(type, out property))

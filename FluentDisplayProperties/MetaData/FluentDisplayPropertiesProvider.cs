@@ -6,17 +6,22 @@ namespace FluentDisplayProperties.MetaData
 {
     public class FluentDisplayPropertiesProvider : DataAnnotationsModelMetadataProvider
     {
-        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType, Func<object> modelAccessor, Type modelType, string propertyName)
+        protected override ModelMetadata CreateMetadata(IEnumerable<Attribute> attributes, Type containerType,
+            Func<object> modelAccessor, Type modelType, string propertyName)
         {
             ModelMetadata metadata = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
 
-            var res = DisplayPropertyFactory.DisplayProperties;
+            var key = containerType.FullName + "." + metadata.PropertyName;
+            
+            IDisplayProperty displayProperty;
+            var res = DisplayPropertyFactory.DisplayProperties.TryGetValue(key, out displayProperty);
+            metadata.DisplayName = displayProperty.DisplayValue;
 
-            IDisplayProperty property;
-            if (DisplayPropertyFactory.DisplayProperties.TryGetValue(containerType, out property))
+
+            /*if (DisplayPropertyFactory.DisplayProperties.TryGetValue(containerType, out property))
             {
                 metadata.DisplayName = property.DisplayValue;
-            }
+            }*/
 
             /*if (metadata.DisplayName == null)
             {
