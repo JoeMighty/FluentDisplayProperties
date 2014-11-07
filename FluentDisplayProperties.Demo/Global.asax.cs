@@ -19,6 +19,7 @@ namespace FluentDisplayProperties.Demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            //TODO: Hydrate registered properties
             var res = new ExampleModelProperties();
             DisplayProperties.Register();
 

@@ -1,4 +1,6 @@
-﻿namespace FluentDisplayProperties.Demo.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FluentDisplayProperties.Demo.ViewModels
 {
     public class ExampleViewModel
     {
@@ -11,15 +13,12 @@
         public string Address1 { get; set; }
 
         public string Address2 { get; set; }
+
+        public string AddressLine3 { get; set; }
+
+        [Display(Name = "Display Attribute Example")]
+        public string TownCity { get; set; }
+
+        public int MySSID { get; set; }
     }
 }
-
-/*public class ExampleViewModel
-{
-    public string Name { get; set; } // Output as "Name"
-
-    public string FullName { get; set; } // Output as "FullName"
-
-    [DisplayName("Telephone Number")]
-    public string TelephoneNumber { get; set; }
-}*/

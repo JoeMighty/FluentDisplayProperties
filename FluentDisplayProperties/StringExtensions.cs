@@ -6,7 +6,7 @@ namespace FluentDisplayProperties
     {
         public static string ToSeparatedWords(this string value)
         {
-            return value != null ? Regex.Replace(value, "([A-Z][a-z]?)", " $1").Trim() : null;
+            return value != null ? Regex.Replace(value, "([a-z](?=[A-Z0-9])|[A-Z](?=[A-Z][a-z]))", "$1 ").Trim() : null;
         }
     }
 }

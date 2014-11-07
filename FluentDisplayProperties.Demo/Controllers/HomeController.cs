@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using FluentDisplayProperties.Demo.ViewModels;
 
 namespace FluentDisplayProperties.Demo.Controllers
 {
-    public class ExampleController : Controller
+    public class HomeController : Controller
     {
         //
         // GET: /Example/
@@ -16,6 +12,5 @@ namespace FluentDisplayProperties.Demo.Controllers
         {
             return View(new ExampleViewModel());
         }
-
     }
 }
