@@ -1,8 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using FluentDisplayProperties.Demo.Configuration;
-using FluentDisplayProperties.MetaData;
 using DisplayProperties = FluentDisplayProperties.MetaData.FluentDisplayProperties;
 
 namespace FluentDisplayProperties.Demo
@@ -19,11 +17,7 @@ namespace FluentDisplayProperties.Demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            //TODO: Hydrate registered properties
-            var res = new ExampleModelProperties();
-            DisplayProperties.Register();
-
-            ModelMetadataProviders.Current = new FluentDisplayPropertiesProvider();
+            ModelMetadataProviders.Current = DisplayProperties.Register(allowDisplayAnnotations: true);
         }
     }
 }

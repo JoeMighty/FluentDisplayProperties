@@ -2,9 +2,9 @@
 {
     public static class FluentDisplayProperties
     {
-        public static void Register()
+        public static FluentDisplayPropertiesProvider Register(bool allowDisplayAnnotations)
         {
-            
+            return new FluentDisplayPropertiesProvider(allowDisplayAnnotations);
         }
     }
 }

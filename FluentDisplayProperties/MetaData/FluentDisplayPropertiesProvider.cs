@@ -19,20 +19,29 @@ namespace FluentDisplayProperties.MetaData
         {
             ModelMetadata metadata = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
 
+            if (this.allowDisplayAnnotations && PropertyHasDisplayAttribute(metadata))
+            {
+                return metadata;
+            }
+
             string key = containerType.FullName + "." + metadata.PropertyName;
 
             IDisplayProperty displayProperty;
-
             if (DisplayPropertyFactory.DisplayProperties.TryGetValue(key, out displayProperty))
             {
                 metadata.DisplayName = displayProperty.DisplayValue;
             }
-            else if (metadata.DisplayName == null)
+            else if (!this.allowDisplayAnnotations)
             {
                 metadata.DisplayName = metadata.PropertyName.ToSeparatedWords();
             }
 
             return metadata;
+        }
+
+        private static bool PropertyHasDisplayAttribute(ModelMetadata metadata)
+        {
+            return (metadata.DisplayName != null);
         }
     }
 }
