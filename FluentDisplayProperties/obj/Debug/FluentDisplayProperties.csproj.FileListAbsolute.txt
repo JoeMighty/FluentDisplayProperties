@@ -1,5 +1,0 @@
-C:\Users\JosephW\Documents\Visual Studio 2013\Projects\FluentDisplayProperties\FluentDisplayProperties\bin\Debug\FluentDisplayProperties.dll
-C:\Users\JosephW\Documents\Visual Studio 2013\Projects\FluentDisplayProperties\FluentDisplayProperties\bin\Debug\FluentDisplayProperties.pdb
-C:\Users\JosephW\Documents\Visual Studio 2013\Projects\FluentDisplayProperties\FluentDisplayProperties\obj\Debug\FluentDisplayProperties.csprojResolveAssemblyReference.cache
-C:\Users\JosephW\Documents\Visual Studio 2013\Projects\FluentDisplayProperties\FluentDisplayProperties\obj\Debug\FluentDisplayProperties.dll
-C:\Users\JosephW\Documents\Visual Studio 2013\Projects\FluentDisplayProperties\FluentDisplayProperties\obj\Debug\FluentDisplayProperties.pdb
