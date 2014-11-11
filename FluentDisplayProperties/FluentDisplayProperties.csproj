@@ -43,6 +43,8 @@
     <Compile Include="DisplayProperty.cs" />
     <Compile Include="DisplayPropertyConfiguration.cs" />
     <Compile Include="DisplayPropertyFactory.cs" />
+    <Compile Include="IDisplayPropertyFactory.cs" />
+    <Compile Include="MetaData\BaseFluentDisplayProperties.cs" />
     <Compile Include="MetaData\FluentDisplayProperties.cs" />
     <Compile Include="MetaData\FluentDisplayPropertiesProvider.cs" />
     <Compile Include="IDisplayProperty.cs" />

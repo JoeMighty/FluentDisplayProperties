@@ -1,10 +1,10 @@
 ﻿namespace FluentDisplayProperties.MetaData
 {
-    public static class FluentDisplayProperties
+    public class FluentDisplayProperties : BaseFluentDisplayProperties
     {
-        public static FluentDisplayPropertiesProvider Register(bool allowDisplayAnnotations)
+        protected override void RegisterProperties(FluentDisplayPropertiesProvider modelBuilder)
         {
-            return new FluentDisplayPropertiesProvider(allowDisplayAnnotations);
+            modelBuilder.add()
         }
     }
 }

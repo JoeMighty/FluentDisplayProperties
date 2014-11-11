@@ -2,7 +2,7 @@
 
 namespace FluentDisplayProperties
 {
-    internal static class DisplayPropertyFactory
+    public class DisplayPropertyFactory : IDisplayPropertyFactory
     {
         private static readonly Dictionary<string, IDisplayProperty> DisplayPropertiesContainer = new Dictionary<string, IDisplayProperty>();
 

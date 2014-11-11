@@ -7,11 +7,13 @@ namespace FluentDisplayProperties.MetaData
     public class FluentDisplayPropertiesProvider : DataAnnotationsModelMetadataProvider
     {
         private readonly bool allowDisplayAnnotations;
+        private IDisplayPropertyFactory displayPropertyFactory;
 
         /*http://haacked.com/archive/2011/07/14/model-metadata-and-validation-localization-using-conventions.aspx/*/
 
-        public FluentDisplayPropertiesProvider(bool allowDisplayAnnotations = true)
+        public FluentDisplayPropertiesProvider(IDisplayPropertyFactory displayPropertyFactory, bool allowDisplayAnnotations = true, )
         {
+            this.displayPropertyFactory = displayPropertyFactory;
             this.allowDisplayAnnotations = allowDisplayAnnotations;
         }
 

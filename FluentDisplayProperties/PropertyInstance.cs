@@ -2,7 +2,7 @@
 {
     public class PropertyInstance<TProp> where TProp : class
     {
-        private IDisplayProperty displayProperty;
+        private readonly IDisplayProperty displayProperty;
 
         public PropertyInstance(IDisplayProperty displayProperty)
         {
@@ -18,5 +18,9 @@
         {
             this.displayProperty.DisplayValue = value;
         }
+
+        /*public void UseResourceProvider()
+        {
+        }*/
     }
 }
