@@ -4,7 +4,7 @@
     {
         public FluentDisplayPropertiesProvider Register(bool allowDisplayAnnotations)
         {
-            var provider = new FluentDisplayPropertiesProvider(allowDisplayAnnotations);
+            var provider = new FluentDisplayPropertiesProvider();
 
             RegisterProperties(provider);
 

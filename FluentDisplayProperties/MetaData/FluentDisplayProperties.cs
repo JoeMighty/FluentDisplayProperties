@@ -4,7 +4,7 @@
     {
         protected override void RegisterProperties(FluentDisplayPropertiesProvider modelBuilder)
         {
-            modelBuilder.add()
+            
         }
     }
 }

@@ -11,7 +11,7 @@ namespace FluentDisplayProperties.MetaData
 
         /*http://haacked.com/archive/2011/07/14/model-metadata-and-validation-localization-using-conventions.aspx/*/
 
-        public FluentDisplayPropertiesProvider(IDisplayPropertyFactory displayPropertyFactory, bool allowDisplayAnnotations = true, )
+        public FluentDisplayPropertiesProvider(IDisplayPropertyFactory displayPropertyFactory, bool allowDisplayAnnotations = true)
         {
             this.displayPropertyFactory = displayPropertyFactory;
             this.allowDisplayAnnotations = allowDisplayAnnotations;
@@ -21,7 +21,7 @@ namespace FluentDisplayProperties.MetaData
         {
             ModelMetadata metadata = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
 
-            if (this.allowDisplayAnnotations && PropertyHasDisplayAttribute(metadata))
+            if (this.allowDisplayAnnotations && this.PropertyHasDisplayAttribute(metadata))
             {
                 return metadata;
             }
@@ -41,7 +41,7 @@ namespace FluentDisplayProperties.MetaData
             return metadata;
         }
 
-        private static bool PropertyHasDisplayAttribute(ModelMetadata metadata)
+        private bool PropertyHasDisplayAttribute(ModelMetadata metadata)
         {
             return (metadata.DisplayName != null);
         }
