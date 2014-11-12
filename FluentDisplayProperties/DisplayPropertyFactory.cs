@@ -12,7 +12,7 @@ namespace FluentDisplayProperties
             get { return DisplayPropertiesContainer; }
         }
 
-        public static IDisplayProperty GetDisplayProperty(string type)
+        private static IDisplayProperty GetDisplayProperty(string type)
         {
             IDisplayProperty property;
             if (DisplayProperties.TryGetValue(type, out property))
@@ -32,6 +32,12 @@ namespace FluentDisplayProperties
 
             var fullName = property.DeclaringType.FullName + "." + property.Name;
             DisplayProperties.Add(fullName, displayProperty);
+        }
+
+
+        public void Register<TDisplayPropertyType>(DisplayPropertyConfiguration<TDisplayPropertyType> entityTypeConfiguration) where TDisplayPropertyType : class
+        {
+
         }
     }
 }

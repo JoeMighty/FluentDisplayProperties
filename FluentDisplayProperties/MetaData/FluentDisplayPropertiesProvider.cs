@@ -45,5 +45,10 @@ namespace FluentDisplayProperties.MetaData
         {
             return (metadata.DisplayName != null);
         }
+
+        public void Register()
+        {
+                
+        }
     }
 }

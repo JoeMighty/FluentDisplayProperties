@@ -113,6 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ExampleModelProperties.cs" />
+    <Compile Include="Configuration\PropertyRegistrar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuration\PropertyRegistrationRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
