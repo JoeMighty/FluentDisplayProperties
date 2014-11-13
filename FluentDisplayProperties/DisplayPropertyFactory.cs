@@ -34,7 +34,6 @@ namespace FluentDisplayProperties
             DisplayProperties.Add(fullName, displayProperty);
         }
 
-
         public void Register<TDisplayPropertyType>(DisplayPropertyConfiguration<TDisplayPropertyType> entityTypeConfiguration) where TDisplayPropertyType : class
         {
 

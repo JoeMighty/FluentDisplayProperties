@@ -2,9 +2,9 @@
 
 namespace FluentDisplayProperties.Demo.Configuration
 {
-    public class PropertyRegistrationRegistration : BaseFluentDisplayPropertiesRegistration
+    public class MyRegistrationClass : BaseFluentDisplayPropertiesRegistration
     {
-        public PropertyRegistrationRegistration()
+        public MyRegistrationClass()
         {
             this.AllowDisplayAnnotations = true;
         }

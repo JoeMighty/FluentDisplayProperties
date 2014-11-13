@@ -1,7 +1,6 @@
 ﻿using FluentDisplayProperties.MetaData;
-using FluentDisplayProperties.Registration;
 
-namespace FluentDisplayProperties.Demo.Configuration
+namespace FluentDisplayProperties.Registration
 {
     public class PropertyRegistrar
     {

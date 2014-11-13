@@ -49,6 +49,8 @@
     <Compile Include="IDisplayProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyInstance.cs" />
+    <Compile Include="Registration\PropertyRegistrar.cs" />
+    <Compile Include="ResourceProvider\IResourceProvider.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
