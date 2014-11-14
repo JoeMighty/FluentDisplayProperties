@@ -2,7 +2,7 @@
 
 namespace FluentDisplayProperties
 {
-    public class DisplayPropertyFactory : IDisplayPropertyFactory
+    public class DisplayPropertyContainer
     {
         private static readonly Dictionary<string, IDisplayProperty> DisplayPropertiesContainer = new Dictionary<string, IDisplayProperty>();
 
@@ -23,7 +23,7 @@ namespace FluentDisplayProperties
             return null;
         }
 
-        public static void RegisterProperty(DisplayProperty displayProperty)
+        public static void RegisterProperty(IDisplayProperty displayProperty)
         {
             /*string res1 = property.Name;
             string res2 = property.DeclaringType.AssemblyQualifiedName;*/

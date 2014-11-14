@@ -9,16 +9,16 @@ namespace FluentDisplayProperties
         public PropertyInstance<TProp> ForProperty<TProp>(Expression<Func<TModel, TProp>> expression) where TProp : class
         {
             PropertyInfo property = (PropertyInfo) (((MemberExpression) expression.Body).Member);
-
             var displayProperty = new DisplayProperty(property);
-            DisplayPropertyFactory.RegisterProperty(displayProperty);
+
+            this.RegisterPropertyWithContainer(displayProperty);
 
             return new PropertyInstance<TProp>(displayProperty);
         }
 
-        /*public void UseResourceProvider()
+        private void RegisterPropertyWithContainer(IDisplayProperty displayProperty)
         {
-            
-        }*/
+            DisplayPropertyContainer.RegisterProperty(displayProperty);
+        }
     }
 }

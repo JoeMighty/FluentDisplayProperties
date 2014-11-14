@@ -1,4 +1,5 @@
 ﻿using FluentDisplayProperties.Registration;
+using FluentDisplayProperties.ResourceProvider;
 
 namespace FluentDisplayProperties.Demo.Configuration
 {
@@ -7,11 +8,12 @@ namespace FluentDisplayProperties.Demo.Configuration
         public MyRegistrationClass()
         {
             this.AllowDisplayAnnotations = true;
+            this.ResourceProvider = new DefaultResourceProvider();
         }
 
-        protected override void OnRegistration(DisplayPropertyFactory factory)
+        protected override void OnRegistration(DisplayPropertyContainer propertyContainer)
         {
-            factory.Register(new ExampleModelProperties());
+            propertyContainer.Register(new ExampleModelProperties());
         }
     }
 }

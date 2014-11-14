@@ -11,14 +11,14 @@ namespace FluentDisplayProperties.Registration
 
         public FluentDisplayPropertiesProvider GetProvider()
         {
-            var factory = new DisplayPropertyFactory();
+            var factory = new DisplayPropertyContainer();
 
             OnRegistration(factory);
 
-            return new FluentDisplayPropertiesProvider(factory, this.AllowDisplayAnnotations);
+            return new FluentDisplayPropertiesProvider(factory, this.ResourceProvider, this.AllowDisplayAnnotations);
         }
 
-        protected virtual void OnRegistration(DisplayPropertyFactory modelBuilder)
+        protected virtual void OnRegistration(DisplayPropertyContainer propertyContainer)
         {
         }
     }

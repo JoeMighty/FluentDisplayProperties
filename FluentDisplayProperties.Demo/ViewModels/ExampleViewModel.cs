@@ -17,7 +17,6 @@ namespace FluentDisplayProperties.Demo.ViewModels
 
         public string AddressLine3 { get; set; }
 
-        [Display(Name = "Display Attribute Example")]
         public string TownCity { get; set; }
 
         public int MySSID { get; set; }
