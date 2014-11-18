@@ -2,9 +2,15 @@
 {
     public class DefaultResourceProvider : IResourceProvider
     {
-        public string ResourceLookup(string propetyName)
+        public bool TryLookupResource(string propetyName, out string propertyValue)
         {
-            throw new System.NotImplementedException();
+            propertyValue = string.Empty;
+            if (propetyName == "Surname")
+            {
+                propertyValue = "Hello world!";
+            }
+
+            return true;
         }
     }
 }

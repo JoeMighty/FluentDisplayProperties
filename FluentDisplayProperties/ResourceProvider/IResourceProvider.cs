@@ -2,6 +2,6 @@
 {
     public interface IResourceProvider
     {
-        string ResourceLookup(string propertyName);
+        bool TryLookupResource(string propertyName, out string propertyValue);
     }
 }

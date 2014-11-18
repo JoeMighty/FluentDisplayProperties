@@ -30,26 +30,19 @@ namespace FluentDisplayProperties.MetaData
                 return metadata;
             }
 
-            if (this.ResourceProvider != null)
+            // Lookup resource
+            string propertyValue;
+            if (this.ResourceProvider != null && this.ResourceProvider.TryLookupResource(metadata.PropertyName, out propertyValue))
             {
-                metadata.DisplayName = this.ResourceProvider.ResourceLookup(metadata.PropertyName);
-
+                metadata.DisplayName = propertyValue;
                 return metadata;
             }
 
+            // Return from container, or split word
             string key = containerType.FullName + "." + metadata.PropertyName;
 
             IDisplayProperty displayProperty;
-            if (DisplayPropertyContainer.DisplayProperties.TryGetValue(key, out displayProperty))
-            {
-                // Use property from container
-                metadata.DisplayName = displayProperty.DisplayValue;
-            }
-            else if (!this.allowDisplayAnnotations)
-            {
-                // Fall back to the separated, property name
-                metadata.DisplayName = metadata.PropertyName.ToSeparatedWords();
-            }
+            metadata.DisplayName = DisplayPropertyContainer.DisplayProperties.TryGetValue(key, out displayProperty) ? displayProperty.DisplayValue : metadata.PropertyName.ToSeparatedWords();
 
             return metadata;
         }
