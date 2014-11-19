@@ -6,7 +6,7 @@ namespace FluentDisplayProperties.Demo.ViewModels
     {
         public string Title { get; set; }
 
-        [Display(Name = "My Full Name Attribute")]
+        /*[Display(Name = "My Full Name Attribute")]*/
         public string FullName { get; set; }
 
         public string Surname { get; set; }

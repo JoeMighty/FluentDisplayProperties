@@ -42,7 +42,7 @@ namespace FluentDisplayProperties.MetaData
             string key = containerType.FullName + "." + metadata.PropertyName;
 
             IDisplayProperty displayProperty;
-            metadata.DisplayName = DisplayPropertyContainer.DisplayProperties.TryGetValue(key, out displayProperty) ? displayProperty.DisplayValue : metadata.PropertyName.ToSeparatedWords();
+            metadata.DisplayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : metadata.PropertyName.ToSeparatedWords();
 
             return metadata;
         }

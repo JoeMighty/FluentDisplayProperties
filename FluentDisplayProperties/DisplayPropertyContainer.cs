@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 
 namespace FluentDisplayProperties
 {
@@ -6,32 +7,30 @@ namespace FluentDisplayProperties
     {
         private static readonly Dictionary<string, IDisplayProperty> DisplayPropertiesContainer = new Dictionary<string, IDisplayProperty>();
 
-        //TODO: Return container for Dictionary removing any access allowing for custom API to collection
-        public static Dictionary<string, IDisplayProperty> DisplayProperties
-        {
-            get { return DisplayPropertiesContainer; }
-        }
-
-        private static IDisplayProperty GetDisplayProperty(string type)
+        public static bool TryGetDisplayProperty(string type, out IDisplayProperty displayProperty)
         {
             IDisplayProperty property;
-            if (DisplayProperties.TryGetValue(type, out property))
+            if (DisplayPropertiesContainer.TryGetValue(type, out property))
             {
-                return property;
+                displayProperty = property;
+                return true;
             }
 
-            return null;
+            displayProperty = null;
+            return false;
         }
 
         public static void RegisterProperty(IDisplayProperty displayProperty)
         {
-            /*string res1 = property.Name;
-            string res2 = property.DeclaringType.AssemblyQualifiedName;*/
+            /*string property = property.DeclaringType.AssemblyQualifiedName;*/
 
-            var property = displayProperty.PropertyInformation;
+            PropertyInfo propertyInfo = displayProperty.PropertyInformation;
+            var propertyKey = propertyInfo.DeclaringType.FullName + "." + propertyInfo.Name;
 
-            var fullName = property.DeclaringType.FullName + "." + property.Name;
-            DisplayProperties.Add(fullName, displayProperty);
+            if (!DisplayPropertiesContainer.ContainsKey(propertyKey))
+            {
+                DisplayPropertiesContainer.Add(propertyKey, displayProperty);    
+            }
         }
 
         public void Register<TDisplayPropertyType>(DisplayPropertyConfiguration<TDisplayPropertyType> entityTypeConfiguration) where TDisplayPropertyType : class
