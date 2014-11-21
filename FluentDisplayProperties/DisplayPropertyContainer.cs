@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace FluentDisplayProperties
@@ -33,9 +34,14 @@ namespace FluentDisplayProperties
             }
         }
 
-        public void Register<TDisplayPropertyType>(DisplayPropertyConfiguration<TDisplayPropertyType> entityTypeConfiguration) where TDisplayPropertyType : class
+        /*public void Register<TDisplayPropertyType>(DisplayPropertyConfiguration<TDisplayPropertyType> entityTypeConfiguration) where TDisplayPropertyType : class
         {
 
+        }*/
+
+        public void Register(Type modelType)
+        {
+            Activator.CreateInstance(modelType);
         }
     }
 }

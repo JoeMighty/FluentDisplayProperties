@@ -50,7 +50,10 @@
     <Compile Include="PropertyInstance.cs" />
     <Compile Include="Registration\PropertyRegistrar.cs" />
     <Compile Include="ResourceProvider\DefaultResourceProvider.cs" />
-    <Compile Include="ResourceProvider\IResourceProvider.cs" />
+    <Compile Include="ResourceProvider\DisplayPropertyResourceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResourceProvider\ResourceItem.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

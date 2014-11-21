@@ -1,16 +1,16 @@
 ﻿namespace FluentDisplayProperties.ResourceProvider
 {
-    public class DefaultResourceProvider : IResourceProvider
+    public class DefaultResourceProvider : DisplayPropertyResourceProvider
     {
-        public bool TryLookupResource(string propetyName, out string propertyValue)
+        public override string LookupResource(ResourceItem resourceItem, string propertyKey)
         {
-            propertyValue = string.Empty;
-            if (propetyName == "Surname")
-            {
-                propertyValue = "Hello world!";
-            }
+            // Return from container, or split word
+            string key = resourceItem.FullName + "." + resourceItem.PropertyName;
 
-            return true;
+            IDisplayProperty displayProperty;
+            string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();
+
+            return displayName;
         }
     }
 }

@@ -7,12 +7,11 @@ namespace FluentDisplayProperties.Registration
     {
         public bool AllowDisplayAnnotations { get; set; }
 
-        public IResourceProvider ResourceProvider { get; set; }
+        public DisplayPropertyResourceProvider ResourceProvider { get; set; }
 
         public FluentDisplayPropertiesProvider GetProvider()
         {
             var factory = new DisplayPropertyContainer();
-
             OnRegistration(factory);
 
             return new FluentDisplayPropertiesProvider(factory, this.ResourceProvider, this.AllowDisplayAnnotations);
