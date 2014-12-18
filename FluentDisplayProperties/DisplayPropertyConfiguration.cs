@@ -11,12 +11,12 @@ namespace FluentDisplayProperties
             PropertyInfo property = (PropertyInfo) (((MemberExpression) expression.Body).Member);
             var displayProperty = new DisplayProperty(property);
 
-            this.RegisterPropertyWithContainer(displayProperty);
+            RegisterPropertyWithContainer(displayProperty);
 
             return new PropertyInstance<TProp>(displayProperty);
         }
 
-        private void RegisterPropertyWithContainer(IDisplayProperty displayProperty)
+        private static void RegisterPropertyWithContainer(IDisplayProperty displayProperty)
         {
             DisplayPropertyContainer.RegisterProperty(displayProperty);
         }

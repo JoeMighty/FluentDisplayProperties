@@ -8,9 +8,16 @@
             string key = resourceItem.FullName + "." + resourceItem.PropertyName;
 
             IDisplayProperty displayProperty;
-            string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();
+            /*string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();*/
+            bool exists = DisplayPropertyContainer.DoesDisplayModelExist(resourceItem.PropertyKey2);
+            if (exists)
+            {
+                // new up display model    
+            }
 
-            return displayName;
+            /**string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();**/
+
+            return "";
         }
     }
 }

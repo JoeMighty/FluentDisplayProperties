@@ -19,6 +19,7 @@ namespace FluentDisplayProperties.Registration
 
         protected virtual void OnRegistration(DisplayPropertyContainer propertyContainer)
         {
+            // Register view models
         }
     }
 }

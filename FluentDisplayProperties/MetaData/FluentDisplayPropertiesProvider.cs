@@ -33,10 +33,11 @@ namespace FluentDisplayProperties.MetaData
                 DisplayName = metadata.DisplayName,
                 FullName = containerType.FullName,
                 PropertyKey = containerType.FullName + "." + metadata.PropertyName,
+                PropertyKey2 = containerType.AssemblyQualifiedName,
                 PropertyName = metadata.PropertyName
             };
 
-            metadata.DisplayName = this.ResourceProvider.LookupResource(resourceItem, resourceItem.PropertyKey);
+            metadata.DisplayName = this.ResourceProvider.LookupResource(resourceItem, resourceItem.PropertyKey2);
 
             return metadata;
         }

@@ -13,8 +13,7 @@ namespace FluentDisplayProperties.Demo.Configuration
 
         protected override void OnRegistration(DisplayPropertyContainer propertyContainer)
         {
-            /*propertyContainer.Register(new ExampleModelProperties());*/
-            propertyContainer.Register(typeof(ExampleModelProperties));
+            propertyContainer.Register<ExampleModelProperties>();
         }
     }
 }
