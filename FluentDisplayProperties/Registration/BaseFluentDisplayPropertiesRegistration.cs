@@ -3,7 +3,7 @@ using FluentDisplayProperties.ResourceProvider;
 
 namespace FluentDisplayProperties.Registration
 {
-    public class BaseFluentDisplayPropertiesRegistration
+    public abstract class BaseFluentDisplayPropertiesRegistration
     {
         public bool AllowDisplayAnnotations { get; set; }
 
@@ -19,7 +19,7 @@ namespace FluentDisplayProperties.Registration
 
         protected virtual void OnRegistration(DisplayPropertyContainer propertyContainer)
         {
-            // Register view models
+            // Overridden
         }
     }
 }
