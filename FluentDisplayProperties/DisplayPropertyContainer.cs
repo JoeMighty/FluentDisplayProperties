@@ -10,8 +10,9 @@ namespace FluentDisplayProperties
         private static readonly Dictionary<string, IDisplayProperty> DisplayPropertiesContainer = new Dictionary<string, IDisplayProperty>();
         private static readonly Dictionary<string, string> TypeContainer = new Dictionary<string, string>();
 
-        public static bool DoesDisplayModelExist(string key)
+        public static bool TryCreateInstanceOfViewModelConfig(string key)
         {
+            //We're here. Do we add a newed up object to a collection to indicate that it's been instantiated?
             string modelRegistrar = null;
             bool exists = TypeContainer.TryGetValue(key, out modelRegistrar);
             if (exists)

@@ -2,20 +2,22 @@
 {
     public class DefaultResourceProvider : DisplayPropertyResourceProvider
     {
-        public override string LookupResource(ResourceItem resourceItem, string propertyKey)
+        public override string LookupResource(ResourceItem resourceItem)
         {
             // Return from container, or split word
             string key = resourceItem.FullName + "." + resourceItem.PropertyName;
 
             IDisplayProperty displayProperty;
             /*string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();*/
-            bool exists = DisplayPropertyContainer.DoesDisplayModelExist(resourceItem.PropertyKey2);
+
+            // Try and create an instance of the view model configuration class who's mappings are created within constructor
+            bool exists = DisplayPropertyContainer.TryCreateInstanceOfViewModelConfig(resourceItem.PropertyKey2);
             if (exists)
             {
-                // new up display model    
+                /*string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();*/
             }
 
-            /**string displayName = DisplayPropertyContainer.TryGetDisplayProperty(key, out displayProperty) ? displayProperty.DisplayValue : resourceItem.PropertyName.ToSeparatedWords();**/
+            
 
             return "";
         }

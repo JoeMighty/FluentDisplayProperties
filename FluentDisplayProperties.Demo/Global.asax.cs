@@ -14,6 +14,7 @@ namespace FluentDisplayProperties.Demo
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            // Register view model configurations to get added to collection
             ModelMetadataProviders.Current = PropertyRegistrar.Register(new MyRegistrationClass());
         }
     }

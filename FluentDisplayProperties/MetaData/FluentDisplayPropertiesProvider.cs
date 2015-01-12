@@ -7,13 +7,10 @@ namespace FluentDisplayProperties.MetaData
 {
     public class FluentDisplayPropertiesProvider : DataAnnotationsModelMetadataProvider
     {
-        private readonly bool allowDisplayAnnotations;
         private readonly DisplayPropertyResourceProvider ResourceProvider;
 
         public FluentDisplayPropertiesProvider(DisplayPropertyContainer propertyContainer, DisplayPropertyResourceProvider resourceProvider, bool allowDisplayAnnotations = true)
         {
-            this.allowDisplayAnnotations = allowDisplayAnnotations;
-
             this.ResourceProvider = resourceProvider;
             this.ResourceProvider.PropertyContainer = propertyContainer;
             this.ResourceProvider.AllowAnnotations = allowDisplayAnnotations;
@@ -23,11 +20,18 @@ namespace FluentDisplayProperties.MetaData
         {
             ModelMetadata metadata = base.CreateMetadata(attributes, containerType, modelAccessor, modelType, propertyName);
 
-            if (this.allowDisplayAnnotations && PropertyHasDisplayAttribute(metadata))
+            if (this.ResourceProvider.AllowAnnotations && PropertyHasDisplayAttribute(metadata))
             {
                 return metadata;
             }
 
+            metadata.DisplayName = this.GetOrAddResourceFromProviderProvided(metadata, containerType);
+
+            return metadata;
+        }
+
+        private string GetOrAddResourceFromProviderProvided(ModelMetadata metadata, Type containerType)
+        {
             var resourceItem = new ResourceItem
             {
                 DisplayName = metadata.DisplayName,
@@ -37,9 +41,7 @@ namespace FluentDisplayProperties.MetaData
                 PropertyName = metadata.PropertyName
             };
 
-            metadata.DisplayName = this.ResourceProvider.LookupResource(resourceItem, resourceItem.PropertyKey2);
-
-            return metadata;
+            return this.ResourceProvider.LookupResource(resourceItem);
         }
 
         private static bool PropertyHasDisplayAttribute(ModelMetadata metadata)

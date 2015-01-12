@@ -6,6 +6,6 @@
 
         public DisplayPropertyContainer PropertyContainer { get; set; }
 
-        public abstract string LookupResource(ResourceItem resourceItem, string propertyKey);
+        public abstract string LookupResource(ResourceItem resourceItem);
     }
 }

@@ -6,8 +6,8 @@ namespace FluentDisplayProperties.Demo.Configuration
     {
         public ExampleModelProperties()
         {
-            this.ForProperty(x => x.FullName).Display("Joe's Name");
-            this.ForProperty(x => x.FullName).Display("Joe's Name2");
+            /*this.ForProperty(x => x.FullName).Display("Joe's Name");
+            this.ForProperty(x => x.FullName).Display("Joe's Name2");*/
             this.ForProperty(x => x.Surname).Display("Joe's Surname");
             this.ForProperty(x => x.Address1).Display("Primary Address");
             this.ForProperty(x => x.Address2).Display("Secondary Address 222555");
